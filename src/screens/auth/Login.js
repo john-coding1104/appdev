@@ -15,44 +15,43 @@ const Login = () => {
   const navigation = useNavigation();
   const dispatch = useDispatch();
   const { isLoading, error } = useSelector(state => state.auth);
-  const [emailAdd, setEmailAdd] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   const handleLogin = () => {
-    if (emailAdd === '' || password === '') {
-      Alert.alert('Invalid Credentials', 'Please enter your email address and password.');
+    if (username === '' || password === '') {
+      Alert.alert('Invalid Credentials', 'Please enter your username and password.');
       return;
     }
     // Dispatched to redux — the auth saga intercepts this, calls the API, saves the token
-    dispatch(loginRequest({ email: emailAdd, password }));
+    dispatch(loginRequest({ username, password }));
   };
 
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === 'ios' ? 'padding' : undefined}
-      style={{ flex: 1, backgroundColor: '#F8F4FF' }}>
+      style={{ flex: 1, backgroundColor: '#F3F7F5' }}>
       <ScrollView contentContainerStyle={{ flexGrow: 1, padding: 24, justifyContent: 'center' }} keyboardShouldPersistTaps="handled">
 
         {/* Logo */}
         <View style={{ alignItems: 'center', marginBottom: 36 }}>
-          <View style={{ width: 84, height: 84, borderRadius: 42, backgroundColor: '#7C3AED', alignItems: 'center', justifyContent: 'center', marginBottom: 14, shadowColor: '#7C3AED', shadowOffset: { width: 0, height: 8 }, shadowOpacity: 0.35, shadowRadius: 16, elevation: 10 }}>
+          <View style={{ width: 84, height: 84, borderRadius: 42, backgroundColor: '#235A2f', alignItems: 'center', justifyContent: 'center', marginBottom: 14, shadowColor: '#235A2f', shadowOffset: { width: 0, height: 8 }, shadowOpacity: 0.35, shadowRadius: 16, elevation: 10 }}>
             <Image source={{ uri: IMG.LOGO }} style={{ width: 50, height: 50 }} resizeMode="contain" />
           </View>
-          <Text style={{ fontSize: 28, fontWeight: '900', color: '#1E0A3C', letterSpacing: -0.5 }}>CaterEase</Text>
-          <Text style={{ fontSize: 13, color: '#9E8FBF', marginTop: 4 }}>Premium Catering Services</Text>
+          <Text style={{ fontSize: 28, fontWeight: '900', color: '#1E1E1E', letterSpacing: -0.5 }}>EveryEvent</Text>
+          <Text style={{ fontSize: 13, color: '#5D8F75', marginTop: 4 }}>Premium Catering Services</Text>
         </View>
 
         {/* Card */}
-        <View style={{ backgroundColor: '#fff', borderRadius: 24, padding: 24, shadowColor: '#7C3AED', shadowOffset: { width: 0, height: 8 }, shadowOpacity: 0.08, shadowRadius: 24, elevation: 6 }}>
-          <Text style={{ fontSize: 22, fontWeight: '800', color: '#1E0A3C', marginBottom: 4 }}>Welcome Back</Text>
-          <Text style={{ fontSize: 13, color: '#9E8FBF', marginBottom: 24 }}>Sign in to manage your bookings</Text>
+        <View style={{ backgroundColor: '#fff', borderRadius: 24, padding: 24, shadowColor: '#235A2f', shadowOffset: { width: 0, height: 8 }, shadowOpacity: 0.08, shadowRadius: 24, elevation: 6 }}>
+          <Text style={{ fontSize: 22, fontWeight: '800', color: '#1E1E1E', marginBottom: 4 }}>Welcome Back</Text>
+          <Text style={{ fontSize: 13, color: '#5D8F75', marginBottom: 24 }}>Sign in to manage your bookings</Text>
 
           <CustomTextInput
-            label="Email Address"
-            placeholder="you@email.com"
-            onChangeText={val => setEmailAdd(val)}
-            value={emailAdd}
-            keyboardType="email-address"
+            label="Username"
+            placeholder="john_doe"
+            onChangeText={val => setUsername(val)}
+            value={username}
             autoCapitalize="none"
           />
 
@@ -68,14 +67,14 @@ const Login = () => {
             label="Sign In"
             onPress={handleLogin}
             loading={isLoading}
-            containerStyle={{ backgroundColor: '#7C3AED', borderRadius: 14, marginTop: 8, marginBottom: 20 }}
+            containerStyle={{ backgroundColor: '#235A2f', borderRadius: 14, marginTop: 8, marginBottom: 20 }}
             textStyle={{ color: '#fff', fontSize: 16, fontWeight: '800' }}
           />
 
           <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
-            <Text style={{ color: '#9E8FBF', fontSize: 14 }}>Don't have an account? </Text>
+            <Text style={{ color: '#5D8F75', fontSize: 14 }}>Don't have an account? </Text>
             <TouchableOpacity onPress={() => navigation.navigate(ROUTES.REGISTER)}>
-              <Text style={{ color: '#7C3AED', fontWeight: '700', fontSize: 14 }}>Register</Text>
+              <Text style={{ color: '#235A2f', fontWeight: '700', fontSize: 14 }}>Register</Text>
             </TouchableOpacity>
           </View>
         </View>

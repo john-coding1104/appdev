@@ -29,7 +29,7 @@ const HomeScreen = () => {
       <ScrollView showsVerticalScrollIndicator={false}>
 
         {/* Header */}
-        <View style={{ backgroundColor: '#7C3AED', paddingHorizontal: 20, paddingTop: 16, paddingBottom: 24 }}>
+        <View style={{ backgroundColor: '#235A2f', paddingHorizontal: 20, paddingTop: 16, paddingBottom: 24 }}>
           <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
             <View>
               <Text style={{ fontSize: 20, fontWeight: '800', color: '#fff' }}>
@@ -51,13 +51,13 @@ const HomeScreen = () => {
         {/* Banner */}
         <View style={{ marginHorizontal: 16, marginTop: -12, borderRadius: 20, overflow: 'hidden', marginBottom: 20 }}>
           <Image source={{ uri: IMG.BANNER }} style={{ width: '100%', height: 160 }} resizeMode="cover" />
-          <View style={{ position: 'absolute', inset: 0, backgroundColor: 'rgba(109,40,217,0.6)', padding: 18, justifyContent: 'flex-end' }}>
+          <View style={{ position: 'absolute', inset: 0, backgroundColor: 'rgba(35,90,47,0.6)', padding: 18, justifyContent: 'flex-end' }}>
             <Text style={{ fontSize: 20, fontWeight: '900', color: '#fff', marginBottom: 4 }}>Premium Catering</Text>
             <Text style={{ fontSize: 13, color: 'rgba(255,255,255,0.85)', marginBottom: 12 }}>Weddings · Birthdays · Corporate · Events</Text>
             <TouchableOpacity
               onPress={() => navigation.navigate(ROUTES.PACKAGES)}
               style={{ backgroundColor: '#fff', alignSelf: 'flex-start', paddingHorizontal: 14, paddingVertical: 8, borderRadius: 10 }}>
-              <Text style={{ color: '#7C3AED', fontWeight: '800', fontSize: 13 }}>Explore Packages →</Text>
+              <Text style={{ color: '#235A2f', fontWeight: '800', fontSize: 13 }}>Explore Packages →</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -66,7 +66,7 @@ const HomeScreen = () => {
         {bookings.length > 0 && (
           <View style={{ flexDirection: 'row', marginHorizontal: 16, gap: 10, marginBottom: 24 }}>
             {[
-              { label: 'Total', value: bookings.length, bg: '#EDE9FE', color: '#7C3AED' },
+              { label: 'Total', value: bookings.length, bg: '#E8F3ED', color: '#235A2f' },
               { label: 'Pending', value: pending, bg: '#FFF7ED', color: '#F59E0B' },
               { label: 'Confirmed', value: confirmed, bg: '#F0FDF4', color: '#22C55E' },
             ].map(s => (
@@ -85,7 +85,7 @@ const HomeScreen = () => {
             <TouchableOpacity
               key={item.label}
               onPress={() => navigation.navigate(item.route)}
-              style={{ width: '47%', backgroundColor: '#fff', borderRadius: 16, padding: 18, alignItems: 'center', shadowColor: '#7C3AED', shadowOffset: { width: 0, height: 4 }, shadowOpacity: 0.07, shadowRadius: 12, elevation: 3 }}>
+              style={{ width: '47%', backgroundColor: '#fff', borderRadius: 16, padding: 18, alignItems: 'center', shadowColor: '#235A2f', shadowOffset: { width: 0, height: 4 }, shadowOpacity: 0.07, shadowRadius: 12, elevation: 3 }}>
               <Text style={{ fontSize: 30, marginBottom: 8 }}>{item.icon}</Text>
               <Text style={{ fontSize: 13, fontWeight: '700', color: '#1E0A3C', textAlign: 'center' }}>{item.label}</Text>
             </TouchableOpacity>
@@ -98,7 +98,7 @@ const HomeScreen = () => {
             <Text style={{ fontSize: 17, fontWeight: '800', color: '#1E0A3C', paddingHorizontal: 16, marginBottom: 12 }}>Recent Booking</Text>
             <TouchableOpacity
               onPress={() => navigation.navigate(ROUTES.BOOKINGS)}
-              style={{ marginHorizontal: 16, backgroundColor: '#fff', borderRadius: 16, padding: 16, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', shadowColor: '#7C3AED', shadowOffset: { width: 0, height: 4 }, shadowOpacity: 0.07, shadowRadius: 12, elevation: 3, marginBottom: 30 }}>
+              style={{ marginHorizontal: 16, backgroundColor: '#fff', borderRadius: 16, padding: 16, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', shadowColor: '#235A2f', shadowOffset: { width: 0, height: 4 }, shadowOpacity: 0.07, shadowRadius: 12, elevation: 3, marginBottom: 30 }}>
               <View>
                 <Text style={{ fontSize: 15, fontWeight: '700', color: '#1E0A3C', marginBottom: 4 }}>{bookings[0].packageName}</Text>
                 <Text style={{ fontSize: 13, color: '#9E8FBF' }}>📅 {bookings[0].eventDate}</Text>

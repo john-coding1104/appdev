@@ -24,7 +24,7 @@ const ProfileScreen = () => {
       <ScrollView showsVerticalScrollIndicator={false}>
 
         {/* Avatar Header */}
-        <View style={{ backgroundColor: '#7C3AED', alignItems: 'center', paddingVertical: 32 }}>
+        <View style={{ backgroundColor: '#235A2f', alignItems: 'center', paddingVertical: 32 }}>
           <Image source={{ uri: IMG.LOGO }} style={{ width: 72, height: 72, borderRadius: 36, borderWidth: 3, borderColor: 'rgba(255,255,255,0.4)', marginBottom: 12 }} resizeMode="contain" />
           <Text style={{ fontSize: 18, fontWeight: '800', color: '#fff', marginBottom: 4 }}>{user?.email}</Text>
           <Text style={{ fontSize: 12, color: 'rgba(255,255,255,0.7)' }}>Customer Account</Text>
@@ -38,7 +38,7 @@ const ProfileScreen = () => {
             { label: 'Confirmed', value: bookings.filter(b => b.status === 'Confirmed').length },
           ].map(s => (
             <View key={s.label} style={{ flex: 1, alignItems: 'center' }}>
-              <Text style={{ fontSize: 22, fontWeight: '900', color: '#7C3AED' }}>{s.value}</Text>
+              <Text style={{ fontSize: 22, fontWeight: '900', color: '#235A2f' }}>{s.value}</Text>
               <Text style={{ fontSize: 12, color: '#9E8FBF', marginTop: 2 }}>{s.label}</Text>
             </View>
           ))}

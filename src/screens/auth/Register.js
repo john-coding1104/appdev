@@ -11,14 +11,14 @@ import { IMG, ROUTES } from '../../utils';
 
 const Register = () => {
   const navigation = useNavigation();
-  const [emailAdd, setEmailAdd] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [confirm, setConfirm] = useState('');
   const [agreed, setAgreed] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const handleRegister = () => {
-    if (!emailAdd || !password || !confirm) {
+    if (!username || !password || !confirm) {
       Alert.alert('Missing Fields', 'Please fill in all fields.');
       return;
     }
@@ -43,28 +43,27 @@ const Register = () => {
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === 'ios' ? 'padding' : undefined}
-      style={{ flex: 1, backgroundColor: '#F8F4FF' }}>
+      style={{ flex: 1, backgroundColor: '#F3F7F5' }}>
       <ScrollView contentContainerStyle={{ flexGrow: 1, padding: 24 }} keyboardShouldPersistTaps="handled">
 
         {/* Logo */}
         <View style={{ alignItems: 'center', marginVertical: 28 }}>
-          <View style={{ width: 68, height: 68, borderRadius: 34, backgroundColor: '#7C3AED', alignItems: 'center', justifyContent: 'center', marginBottom: 10 }}>
+          <View style={{ width: 68, height: 68, borderRadius: 34, backgroundColor: '#235A2f', alignItems: 'center', justifyContent: 'center', marginBottom: 10 }}>
             <Image source={{ uri: IMG.LOGO }} style={{ width: 40, height: 40 }} resizeMode="contain" />
           </View>
-          <Text style={{ fontSize: 22, fontWeight: '900', color: '#1E0A3C' }}>CaterEase</Text>
+          <Text style={{ fontSize: 22, fontWeight: '900', color: '#1E1E1E' }}>EveryEvent</Text>
         </View>
 
         {/* Card */}
-        <View style={{ backgroundColor: '#fff', borderRadius: 24, padding: 24, shadowColor: '#7C3AED', shadowOffset: { width: 0, height: 8 }, shadowOpacity: 0.08, shadowRadius: 24, elevation: 6 }}>
-          <Text style={{ fontSize: 22, fontWeight: '800', color: '#1E0A3C', marginBottom: 4 }}>Create Account</Text>
-          <Text style={{ fontSize: 13, color: '#9E8FBF', marginBottom: 24 }}>Join us and start booking your event</Text>
+        <View style={{ backgroundColor: '#fff', borderRadius: 24, padding: 24, shadowColor: '#235A2f', shadowOffset: { width: 0, height: 8 }, shadowOpacity: 0.08, shadowRadius: 24, elevation: 6 }}>
+          <Text style={{ fontSize: 22, fontWeight: '800', color: '#1E1E1E', marginBottom: 4 }}>Create Account</Text>
+          <Text style={{ fontSize: 13, color: '#5D8F75', marginBottom: 24 }}>Join us and start booking your event</Text>
 
           <CustomTextInput
-            label="Email Address"
-            placeholder="you@email.com"
-            onChangeText={val => setEmailAdd(val)}
-            value={emailAdd}
-            keyboardType="email-address"
+            label="Username"
+            placeholder="john_doe"
+            onChangeText={val => setUsername(val)}
+            value={username}
             autoCapitalize="none"
           />
 
@@ -90,27 +89,27 @@ const Register = () => {
             style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 20 }}>
             <View style={{
               width: 22, height: 22, borderRadius: 6, borderWidth: 2,
-              borderColor: agreed ? '#7C3AED' : '#C4B5FD',
-              backgroundColor: agreed ? '#7C3AED' : 'transparent',
+              borderColor: agreed ? '#235A2f' : '#C5D9CF',
+              backgroundColor: agreed ? '#235A2f' : 'transparent',
               alignItems: 'center', justifyContent: 'center', marginRight: 10,
             }}>
               {agreed && <Text style={{ color: '#fff', fontSize: 13, fontWeight: '800' }}>✓</Text>}
             </View>
-            <Text style={{ fontSize: 13, color: '#4B3F6B', flex: 1 }}>I agree to the Terms & Conditions</Text>
+            <Text style={{ fontSize: 13, color: '#3D5947', flex: 1 }}>I agree to the Terms & Conditions</Text>
           </TouchableOpacity>
 
           <CustomButton
             label="Create Account"
             onPress={handleRegister}
             loading={loading}
-            containerStyle={{ backgroundColor: '#7C3AED', borderRadius: 14, marginBottom: 20 }}
+            containerStyle={{ backgroundColor: '#235A2f', borderRadius: 14, marginBottom: 20 }}
             textStyle={{ color: '#fff', fontSize: 16, fontWeight: '800' }}
           />
 
           <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
-            <Text style={{ color: '#9E8FBF', fontSize: 14 }}>Already have an account? </Text>
+            <Text style={{ color: '#5D8F75', fontSize: 14 }}>Already have an account? </Text>
             <TouchableOpacity onPress={() => navigation.navigate(ROUTES.LOGIN)}>
-              <Text style={{ color: '#7C3AED', fontWeight: '700', fontSize: 14 }}>Sign In</Text>
+              <Text style={{ color: '#235A2f', fontWeight: '700', fontSize: 14 }}>Sign In</Text>
             </TouchableOpacity>
           </View>
         </View>

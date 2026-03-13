@@ -40,11 +40,11 @@ const BookPackageScreen = () => {
         venue,
         guestCount,
         notes,
-        customerEmail: user?.email,
+        customerUsername: user?.username,
       }));
       Alert.alert(
         'Booking Submitted! 🎉',
-        `Your ${pkg.name} has been submitted. We'll contact you at ${user?.email} within 24 hours.`,
+        `Your ${pkg.name} has been submitted. We'll contact you at username ${user?.username} within 24 hours.`,
         [{ text: 'View My Bookings', onPress: () => navigation.navigate(ROUTES.BOOKINGS) }]
       );
     }, 1200);
@@ -66,7 +66,7 @@ const BookPackageScreen = () => {
           </View>
 
           {/* Form */}
-          <View style={{ backgroundColor: '#fff', borderRadius: 20, padding: 20, shadowColor: '#7C3AED', shadowOffset: { width: 0, height: 4 }, shadowOpacity: 0.06, shadowRadius: 12, elevation: 3 }}>
+          <View style={{ backgroundColor: '#fff', borderRadius: 20, padding: 20, shadowColor: '#235A2f', shadowOffset: { width: 0, height: 4 }, shadowOpacity: 0.06, shadowRadius: 12, elevation: 3 }}>
             <Text style={{ fontSize: 17, fontWeight: '800', color: '#1E0A3C', marginBottom: 18 }}>Event Details</Text>
 
             <CustomTextInput
@@ -111,7 +111,7 @@ const BookPackageScreen = () => {
               ))}
               <View style={{ flexDirection: 'row', justifyContent: 'space-between', borderTopWidth: 1, borderTopColor: '#EDE8FF', paddingTop: 10, marginTop: 4 }}>
                 <Text style={{ fontSize: 15, fontWeight: '800', color: '#1E0A3C' }}>Total</Text>
-                <Text style={{ fontSize: 18, fontWeight: '900', color: '#7C3AED' }}>₱{pkg.price.toLocaleString()}</Text>
+                <Text style={{ fontSize: 18, fontWeight: '900', color: '#235A2f' }}>₱{pkg.price.toLocaleString()}</Text>
               </View>
             </View>
 
@@ -119,7 +119,7 @@ const BookPackageScreen = () => {
               label="✓  Confirm Booking"
               onPress={handleBook}
               loading={loading}
-              containerStyle={{ backgroundColor: '#7C3AED', borderRadius: 14, marginBottom: 12 }}
+              containerStyle={{ backgroundColor: '#235A2f', borderRadius: 14, marginBottom: 12 }}
               textStyle={{ color: '#fff', fontSize: 16, fontWeight: '800' }}
             />
 

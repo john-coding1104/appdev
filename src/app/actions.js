@@ -5,9 +5,9 @@ export const LOGIN_FAILURE = 'auth/LOGIN_FAILURE';
 export const LOGOUT_REQUEST = 'auth/LOGOUT_REQUEST';
 
 // Auth action creators
-export const loginRequest = (email, password) => ({
+export const loginRequest = (username, password) => ({
   type: LOGIN_REQUEST,
-  payload: { email, password },
+  payload: { username, password },
 });
 
 export const loginSuccess = user => ({

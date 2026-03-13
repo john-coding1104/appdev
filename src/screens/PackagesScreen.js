@@ -14,7 +14,7 @@ const PACKAGES = [
     details: 'Good for 100 pax',
     emoji: '💍',
     color: '#F5F3FF',
-    accent: '#7C3AED',
+    accent: '#235A2f',
     image: IMG.WEDDING,
     description: 'Make your dream wedding unforgettable with our premium 5-course catering, elegant table setup, dedicated waitstaff, and personalized menu consultation.',
     includes: ['5-Course Plated Dinner', 'Cocktail Hour Appetizers', 'Wedding Cake Cutting', 'Dedicated Event Coordinator', 'Full Table Setup & Linen', 'Professional Waitstaff'],

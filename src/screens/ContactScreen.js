@@ -24,11 +24,11 @@ const ContactScreen = () => (
           key={c.label}
           onPress={c.onPress}
           disabled={!c.onPress}
-          style={{ flexDirection: 'row', alignItems: 'center', backgroundColor: '#fff', borderRadius: 14, padding: 16, marginBottom: 12, shadowColor: '#7C3AED', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.06, shadowRadius: 8, elevation: 2 }}>
+          style={{ flexDirection: 'row', alignItems: 'center', backgroundColor: '#fff', borderRadius: 14, padding: 16, marginBottom: 12, shadowColor: '#235A2f', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.06, shadowRadius: 8, elevation: 2 }}>
           <Text style={{ fontSize: 28, marginRight: 14 }}>{c.icon}</Text>
           <View>
             <Text style={{ fontSize: 12, color: '#9E8FBF', marginBottom: 2 }}>{c.label}</Text>
-            <Text style={{ fontSize: 15, fontWeight: '700', color: c.onPress ? '#7C3AED' : '#1E0A3C' }}>{c.value}</Text>
+            <Text style={{ fontSize: 15, fontWeight: '700', color: c.onPress ? '#235A2f' : '#1E0A3C' }}>{c.value}</Text>
           </View>
         </TouchableOpacity>
       ))}

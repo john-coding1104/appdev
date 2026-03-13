@@ -55,7 +55,7 @@ const BookingsScreen = () => {
         renderItem={({ item }) => {
           const s = STATUS[item.status] || STATUS.Pending;
           return (
-            <View style={{ backgroundColor: '#fff', borderRadius: 16, padding: 16, marginBottom: 12, shadowColor: '#7C3AED', shadowOffset: { width: 0, height: 4 }, shadowOpacity: 0.07, shadowRadius: 12, elevation: 3 }}>
+            <View style={{ backgroundColor: '#fff', borderRadius: 16, padding: 16, marginBottom: 12, shadowColor: '#235A2f', shadowOffset: { width: 0, height: 4 }, shadowOpacity: 0.07, shadowRadius: 12, elevation: 3 }}>
               <View style={{ flexDirection: 'row', marginBottom: 12 }}>
                 <View style={{ flex: 1 }}>
                   <Text style={{ fontSize: 16, fontWeight: '800', color: '#1E0A3C', marginBottom: 6 }}>{item.packageName}</Text>
@@ -71,7 +71,7 @@ const BookingsScreen = () => {
                   <View style={{ backgroundColor: s.bg, paddingHorizontal: 10, paddingVertical: 5, borderRadius: 20 }}>
                     <Text style={{ fontSize: 12, fontWeight: '700', color: s.color }}>{item.status}</Text>
                   </View>
-                  <Text style={{ fontSize: 16, fontWeight: '900', color: '#7C3AED' }}>₱{item.price.toLocaleString()}</Text>
+                  <Text style={{ fontSize: 16, fontWeight: '900', color: '#235A2f' }}>₱{item.price.toLocaleString()}</Text>
                 </View>
               </View>
               <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', borderTopWidth: 1, borderTopColor: '#F5F3FF', paddingTop: 10 }}>

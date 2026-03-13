@@ -20,7 +20,7 @@ const AuthNav = () => {
         component={Register}
         options={{
           title: 'Create Account',
-          headerStyle: { backgroundColor: '#7C3AED' },
+          headerStyle: { backgroundColor: '#235A2f' },
           headerTintColor: '#fff',
           headerTitleStyle: { fontWeight: '800' },
         }}
