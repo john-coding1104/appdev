@@ -2,10 +2,10 @@ import { call, delay, put, takeLatest } from 'redux-saga/effects';
 import { loginRequest, loginSuccess, loginFailure, logout } from '../../redux/authSlice';
 import { saveToken, clearToken, decodeToken } from '../../utils/tokenStorage';
 
-// Using Wi-Fi IP for physical device connectivity
-const API_BASE_URL = 'http://192.168.137.108:8000/api';
+// KEEPING YOUR API URL UNCHANGED (do not modify per request)
+const API_BASE_URL = 'http://192.168.5.38:8000/api';
 
-// Real Symfony API call
+// Real Symfony API call (generator compatible with redux-saga)
 function* loginApi({ username, password }) {
   try {
     console.log('🌐 [API CALL] Sending login request to Symfony backend', {
@@ -13,21 +13,33 @@ function* loginApi({ username, password }) {
       timestamp: new Date().toISOString(),
     });
 
-    const response = yield fetch(`${API_BASE_URL}/api/login`, {
+    const response = yield call(fetch, `${API_BASE_URL}/login`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username, password }),
     });
 
+    console.log(response);
+
+    const contentType = response.headers && response.headers.get ? response.headers.get('content-type') : '';
+
     if (!response.ok) {
-      const errorData = yield response.json();
-      throw new Error(errorData.message || `HTTP ${response.status}`);
+      if (contentType && contentType.includes('application/json')) {
+        const errorData = yield call([response, response.json]);
+        throw new Error(errorData.message || `HTTP ${response.status}`);
+      }
+      const text = yield call([response, response.text]);
+      throw new Error(text ? text.substring(0, 200) : `HTTP ${response.status}`);
     }
 
-    const data = yield response.json();
-    
+    let data;
+    if (contentType && contentType.includes('application/json')) {
+      data = yield call([response, response.json]);
+    } else {
+      const text = yield call([response, response.text]);
+      throw new Error(`Unexpected response content-type: ${contentType} - ${text.substring(0,200)}`);
+    }
+
     console.log('✅ [API RESPONSE] Token received from Symfony', {
       timestamp: new Date().toISOString(),
       token: data.token,
@@ -44,10 +56,7 @@ function* loginApi({ username, password }) {
       username,
     };
   } catch (error) {
-    console.error('❌ [API ERROR]', {
-      message: error.message,
-      timestamp: new Date().toISOString(),
-    });
+    console.log('❌ [API ERROR]', error);
     throw error;
   }
 }
@@ -74,10 +83,7 @@ function* handleLogin(action) {
       },
     }));
   } catch (err) {
-    console.error('❌ [LOGIN ERROR]', {
-      error: err.message,
-      timestamp: new Date().toISOString(),
-    });
+   console.log(err)
     yield put(loginFailure(err.message || 'Login failed'));
   }
 }
