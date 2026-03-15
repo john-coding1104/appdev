@@ -61,7 +61,7 @@ const Register = () => {
 
           <CustomTextInput
             label="Username"
-            placeholder="john_doe"
+            placeholder="Enter your username"
             onChangeText={val => setUsername(val)}
             value={username}
             autoCapitalize="none"
@@ -69,7 +69,7 @@ const Register = () => {
 
           <CustomTextInput
             label="Password"
-            placeholder="Create a password"
+            placeholder="Enter your password"
             onChangeText={val => setPassword(val)}
             value={password}
             secureTextEntry
@@ -77,7 +77,7 @@ const Register = () => {
 
           <CustomTextInput
             label="Confirm Password"
-            placeholder="Repeat your password"
+            placeholder="Comfirm password"
             onChangeText={val => setConfirm(val)}
             value={confirm}
             secureTextEntry

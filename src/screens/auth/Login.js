@@ -57,7 +57,7 @@ const Login = () => {
           <View style={{ opacity: isLoading ? 0.6 : 1 }}>
             <CustomTextInput
               label="Username"
-              placeholder="john_doe"
+              placeholder="Enter your username"
               onChangeText={val => setUsername(val)}
               value={username}
               autoCapitalize="none"
@@ -66,7 +66,7 @@ const Login = () => {
 
             <CustomTextInput
               label="Password"
-              placeholder="••••••••"
+              placeholder="Enter your password"
               onChangeText={val => setPassword(val)}
               value={password}
               secureTextEntry

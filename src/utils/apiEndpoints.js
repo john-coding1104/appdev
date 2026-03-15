@@ -3,7 +3,7 @@
  * Import and use these throughout your app
  */
 
-import { apiClient } from './apiClient';
+import { apiClient } from '../api/apiClient';
 
 // Authentication endpoints
 export const authAPI = {

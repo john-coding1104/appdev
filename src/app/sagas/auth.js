@@ -9,6 +9,7 @@ const API_BASE_URL = 'http://192.168.5.38:8000/api';
 function* loginApi({ username, password }) {
   try {
     console.log('🌐 [API CALL] Sending login request to Symfony backend', {
+      url: `${API_BASE_URL}/login`,
       username,
       timestamp: new Date().toISOString(),
     });
@@ -19,7 +20,7 @@ function* loginApi({ username, password }) {
       body: JSON.stringify({ username, password }),
     });
 
-    console.log(response);
+    console.log('🔍 [RESPONSE] Status:', response.status, response.statusText, response);
 
     const contentType = response.headers && response.headers.get ? response.headers.get('content-type') : '';
 
@@ -56,7 +57,12 @@ function* loginApi({ username, password }) {
       username,
     };
   } catch (error) {
-    console.log('❌ [API ERROR]', error);
+    console.log('❌ [API ERROR]', {
+      message: error.message,
+      error: error.toString(),
+      stack: error.stack,
+      url: `${API_BASE_URL}/login`,
+    });
     throw error;
   }
 }

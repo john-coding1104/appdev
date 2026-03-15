@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, ScrollView, Alert } from 'react-native';
 import { useSelector } from 'react-redux';
-import { apiClient } from '../../utils/apiClient';
+import { apiClient } from '../../api/apiClient';
 import { decodeToken } from '../../utils/tokenStorage';
 
 /**

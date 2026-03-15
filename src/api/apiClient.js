@@ -1,7 +1,7 @@
-import { getToken } from './tokenStorage';
+import { getToken } from '../utils/tokenStorage';
 
 // Using Wi-Fi IP for physical device connectivity
-const API_BASE_URL = 'http://192.168.137.108:8000/api';
+const API_BASE_URL = 'http://192.168.5.38:8000/api';
 
 /**
  * API client with automatic token injection

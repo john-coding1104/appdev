@@ -34,7 +34,7 @@ const BookingsScreen = () => {
         <CustomButton
           label="Browse Packages"
           onPress={() => navigation.navigate(ROUTES.PACKAGES)}
-          containerStyle={{ backgroundColor: '#7C3AED', borderRadius: 14, paddingHorizontal: 16 }}
+          containerStyle={{ backgroundColor: '#235A2f', borderRadius: 14, paddingHorizontal: 16 }}
           textStyle={{ color: '#fff', fontSize: 15, fontWeight: '700' }}
         />
       </SafeAreaView>
