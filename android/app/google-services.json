@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "235066651411",
+    "project_id": "every-event-dec08",
+    "storage_bucket": "every-event-dec08.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:235066651411:android:e84761d38fb9fa6344e0e6",
+        "android_client_info": {
+          "package_name": "com.daronappdev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "235066651411-rphgiumllrefqplk58evo6sojt51a0hg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.daronappdev",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "235066651411-n3cb2ok7hmt6ee64dbdt1pi8unha8647.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7tKT-CEIqX54VU47jefZvA-D4CCHLEgw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "235066651411-n3cb2ok7hmt6ee64dbdt1pi8unha8647.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
