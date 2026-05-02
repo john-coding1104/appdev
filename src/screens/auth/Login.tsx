@@ -6,12 +6,14 @@ import {
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { useDispatch, useSelector } from 'react-redux';
+import { GoogleSigninButton } from '@react-native-google-signin/google-signin';
 
 import CustomButton from '../../components/CustomButton';
 import CustomTextInput from '../../components/CustomTextInput';
 import { IMG, ROUTES } from '../../utils';
 import { loginRequest } from '../../redux/authSlice';
 import { RootStackParamList, RootState } from '../../types';
+import { _signInWithGoogle } from '../../utils/firebase';
 
 type LoginScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Login'>;
 
@@ -84,6 +86,27 @@ const Login: React.FC = () => {
             containerStyle={{ backgroundColor: '#235A2f', borderRadius: 14, marginTop: 8, marginBottom: 20 }}
             textStyle={{ color: '#fff', fontSize: 16, fontWeight: '800' }}
           />
+
+          <View style={{ marginBottom: 20 }}>
+            <GoogleSigninButton
+             size={GoogleSigninButton.Size.Wide}
+             color={GoogleSigninButton.Color.Dark}
+             onPress={async() => {
+                   // initiate sign in
+                   await _signInWithGoogle()
+                      .then((result) => {
+                        console.log(result);
+                      })
+                      .catch((error) => {
+                        Alert.alert('Error', `${error.message}`);
+                      })
+                      .finally(() => {
+                        Alert.alert('Info', 'Google Sign-In process completed.');
+                      })
+            }}
+            disabled={false}
+            />;
+          </View>
 
           <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', opacity: isLoading ? 0.6 : 1 }}>
             <Text style={{ color: '#5D8F75', fontSize: 14 }}>Don't have an account? </Text>
