@@ -14,6 +14,7 @@ import { IMG, ROUTES } from '../../utils';
 import { loginRequest } from '../../redux/authSlice';
 import { RootStackParamList, RootState } from '../../types';
 import { _signInWithGoogle } from '../../utils/firebase';
+import { showInfo } from '../../components/alertMessage';
 
 type LoginScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Login'>;
 
@@ -93,16 +94,23 @@ const Login: React.FC = () => {
              color={GoogleSigninButton.Color.Dark}
              onPress={async() => {
                    // initiate sign in
-                   await _signInWithGoogle()
-                      .then((result) => {
-                        console.log(result);
-                      })
-                      .catch((error) => {
-                        Alert.alert('Error', `${error.message}`);
-                      })
-                      .finally(() => {
-                        Alert.alert('Info', 'Google Sign-In process completed.');
-                      })
+                  //  await _signInWithGoogle()
+                  //     .then((result) => {
+                  //       console.log(result);
+                  //     })
+                  //     .catch((error) => {
+                  //       Alert.alert('Error', `${error.message}`);
+                  //     })
+                  //     .finally(() => {
+                  //       Alert.alert('Info', 'Google Sign-In process completed.');
+                  //     })
+
+                  showInfo({
+                    title: 'Google Sign-In',
+                    message: 'Google Sign-In process initiated.',
+                    position: 'top',
+                    visibilityTime: 10000,
+                  })
             }}
             disabled={false}
             />;

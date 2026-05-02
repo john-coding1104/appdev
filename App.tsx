@@ -8,6 +8,10 @@ import configureStore from './src/redux/store';
 import rootSaga from './src/app/sagas';
 import AppNav from './src/navigations';
 
+
+import alertConfig from './src/components/alertMessage/config';
+import Toast from 'react-native-toast-message';
+
 // Initialise store and kick off the root saga — matches the reference pattern
 const { store, persistor, runSaga } = configureStore();
 runSaga(rootSaga);
@@ -22,6 +26,7 @@ const App = () => {
           persistor={persistor}>
           <AppNav />
         </PersistGate>
+        <Toast config={alertConfig} />
       </Provider>
     </GestureHandlerRootView>
   );
